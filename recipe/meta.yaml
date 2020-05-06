@@ -1,4 +1,4 @@
-{% set version = '1.0.2' %}
+{% set version = "1.0.2" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -17,7 +17,7 @@ source:
 
 build:
   noarch: generic
-  number: 1001
+  number: 1002
 
   rpaths:
     - lib/R/lib/
@@ -38,12 +38,12 @@ test:
 about:
   home: https://CRAN.R-project.org/package=metaRNASeq
   license: GPL
-  summary: Implementation of two p-value combination techniques (inverse normal and Fisher methods).
-    A vignette is provided to explain how to perform a meta-analysis from two independent
-    RNA-seq experiments.
+  summary: Implementation of two p-value combination techniques (inverse normal and Fisher methods). A vignette is provided to explain how to perform a meta-analysis from two independent RNA-seq experiments.
   license_family: GPL
+  license_file:
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
 extra:
-   recipe-maintainers:
+  recipe-maintainers:
     - conda-forge/r
     - MathiasHaudgaard
     - FrodePedersen
