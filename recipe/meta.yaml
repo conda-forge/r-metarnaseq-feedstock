@@ -1,5 +1,4 @@
 {% set version = "1.0.3" %}
-
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,47 +7,43 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: metaRNASeq_{{ version }}.tar.gz
   url:
     - https://cran.r-project.org/src/contrib/metaRNASeq_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/metaRNASeq/metaRNASeq_{{ version }}.tar.gz
-
   sha256: a6460a6d68503451017e8797b7b7f2a13a0bc464a5f7f10c60bacdc027307efd
 
 build:
-  noarch: generic
+  merge_build_host: True  # [win]
   number: 0
-
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
 
 requirements:
   build:
+    - {{ posix }}zip               # [win]
+  host:
     - r-base
-
   run:
     - r-base
 
 test:
   commands:
-    - $R -e "library('metaRNASeq')"  # [not win]
+    - $R -e "library('metaRNASeq')"           # [not win]
     - "\"%R%\" -e \"library('metaRNASeq')\""  # [win]
 
 about:
   home: https://CRAN.R-project.org/package=metaRNASeq
-  license: GPL
+  license: GPL-2.0-or-later
   summary: Implementation of two p-value combination techniques (inverse normal and Fisher methods). A vignette is provided to explain how to perform a meta-analysis from two independent RNA-seq experiments.
   license_family: GPL
   license_file:
-    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2
+
 extra:
   recipe-maintainers:
     - conda-forge/r
     - MathiasHaudgaard
     - FrodePedersen
     - ArneKr
-    - johanneskoester
-    - bgruening
-    - daler
-    - jdblischak
