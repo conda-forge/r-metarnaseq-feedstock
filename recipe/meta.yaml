@@ -1,4 +1,4 @@
-{% set version = "1.0.2" %}
+{% set version = "1.0.3" %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -13,11 +13,11 @@ source:
     - https://cran.r-project.org/src/contrib/metaRNASeq_{{ version }}.tar.gz
     - https://cran.r-project.org/src/contrib/Archive/metaRNASeq/metaRNASeq_{{ version }}.tar.gz
 
-  sha256: 0affd7f4eb25635b2410110f381809b751655a7f3709f2bc1183e0eb8f6be7f7
+  sha256: a6460a6d68503451017e8797b7b7f2a13a0bc464a5f7f10c60bacdc027307efd
 
 build:
   noarch: generic
-  number: 1002
+  number: 0
 
   rpaths:
     - lib/R/lib/
