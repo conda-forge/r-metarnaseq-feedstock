@@ -5,11 +5,9 @@ Home: https://CRAN.R-project.org/package=metaRNASeq
 
 Package license: GPL
 
-Feedstock license: BSD 3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-metarnaseq-feedstock/blob/master/LICENSE.txt)
 
 Summary: Implementation of two p-value combination techniques (inverse normal and Fisher methods). A vignette is provided to explain how to perform a meta-analysis from two independent RNA-seq experiments.
-
-
 
 Current build status
 ====================
